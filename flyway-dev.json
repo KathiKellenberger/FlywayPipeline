@@ -1,0 +1,42 @@
+{
+  "version": "2.0",
+  "name": "GitHubActions",
+  "id": "8879cb03-b788-4cb4-a65f-7be6d2190a20",
+  "databaseType": "SqlServer",
+  "development": {
+    "scriptsFolder": "./schema-model"
+  },
+  "deployment": {
+    "flywayConfFiles": [
+      "./flyway.conf"
+    ],
+    "generateUndoScripts": true,
+    "targetDatabases": [
+      {
+        "connectionProvider": {
+          "type": "UsernamePassword",
+          "url": "jdbc:sqlserver://redgate-internal.redgate-platform.com:30288;authentication=sqlPassword;databaseName=AdventureWorksLT2019;encrypt=true;trustServerCertificate=true",
+          "username": "sa",
+          "password": {
+            "secretType": "DefaultSecretStore",
+            "name": "Flyway Desktop fc4024e9-cefc-4cf5-9b52-227768e6ec2d"
+          }
+        },
+        "displayName": "Prod"
+      },
+      {
+        "connectionProvider": {
+          "type": "UsernamePassword",
+          "url": "jdbc:sqlserver://redgate-internal.redgate-platform.com:30288;authentication=sqlPassword;databaseName=test;encrypt=true;trustServerCertificate=true",
+          "username": "sa",
+          "password": {
+            "secretType": "DefaultSecretStore",
+            "name": "Flyway Desktop 6016068d-5026-41e5-9a0d-e3f76b032fbf"
+          }
+        },
+        "displayName": "test"
+      }
+    ]
+  },
+  "schemas": []
+}
