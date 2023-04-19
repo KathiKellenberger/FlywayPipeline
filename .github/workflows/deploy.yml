@@ -119,7 +119,9 @@ jobs:
         - name: Create Reports directory
           run: mkdir ${{ GITHUB.WORKSPACE }}/reports
           
-          
+        - name: Print job text 
+          run: echo 'flyway -user="${{ env.userName }}" -password="${{ env.password }}" -baselineOnMigrate="true" -licenseKey="${{ env.FLYWAY_LICENSE_KEY }}" -configFiles="${{ GITHUB.WORKSPACE }}/flyway.conf" -locations="filesystem:${{ GITHUB.WORKSPACE }}/migrations" check -dryrun -changes -drift "-check.failOnDrift=${{ env.failReleaseIfDriftDetected }}" "-check.buildUrl=${{ env.check_JDBC }}" "-check.buildUser=${{ env.check_userName }}" "-check.buildPassword=${{ env.check_password }}" -url="${{ env.JDBC }}" "-check.reportFilename=${{ GITHUB.WORKSPACE }}/reports/${{ env.databaseName }}-Run-${{ GITHUB.RUN_ID }}-Check-Report.html"'
+        
         - name: Create Check Reports
           if: env.generateDriftAndChangeReport == 'true'
           run: |
