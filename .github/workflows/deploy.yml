@@ -5,7 +5,9 @@ name: Example GitHub Pipeline (Self-Hosted)
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "release" branch
-  #push:
+  push:
+    branches:
+        -main
     #branches:
       #- release
       #- 'migrations/**'
