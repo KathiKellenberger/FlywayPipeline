@@ -46,7 +46,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       
-      -name: Install Flyway
+      - name: Install Flyway
         run: "wget -qO- https://download.red-gate.com/maven/release/org/flywaydb/enterprise/flyway-commandline/9.16.3/flyway-commandline-9.16.3-linux-x64.tar.gz | tar -xvz && sudo ln -s 'pwd'/flyway-9.16.3/flyway /usr/local/bin"
       
       # Runs the Flyway Clean command against the Build database
