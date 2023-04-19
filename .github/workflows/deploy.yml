@@ -82,7 +82,7 @@ jobs:
         uses: actions/upload-artifact@v3.1.1
         with: 
           name: flyway-build-artifact
-          path: Artifact_Files/Migration/
+          path: ${{ GITHUB.WORKSPACE }}/Artifact_Files/Migration/
  
   prod-preparation:
       name: Production Deployment Preparation - Report Creation
