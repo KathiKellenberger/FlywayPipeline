@@ -5,9 +5,7 @@ name: Example GitHub Pipeline (Self-Hosted)
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "release" branch
-  push:
-    branches:
-        -main
+  
     #branches:
       #- release
       #- 'migrations/**'
@@ -29,7 +27,7 @@ jobs:
   build:
     name: Deploy Build
     # The type of runner that the job will run on
-    runs-on: windows_latest
+    runs-on: ubuntu-latest
     environment: 'build' #Ensure this environment name is setup in the projects Settings>Environment area. Ensuring any reviewers are also configured 
     env:
       stage: 'Build'
