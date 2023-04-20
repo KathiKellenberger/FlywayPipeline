@@ -138,7 +138,7 @@ jobs:
         - name: Stage files for publishing
           if: env.publishArtifacts == 'true'
           run: |
-            cp -R ${{ GITHUB.WORKSPACE }}/reports ${{ GITHUB.WORKSPACE }}/Artifact_Files/
+            cp -R ${{ GITHUB.WORKSPACE }}/reports ${{ GITHUB.WORKSPACE }}/Artifact_Files/reports
 
         - name: list archive folder
           run: ls ${{ GITHUB.WORKSPACE }}/Artifact_Files
