@@ -121,9 +121,7 @@ jobs:
         - name: Create Reports directory
           run: mkdir ${{ GITHUB.WORKSPACE }}/reports
           
-        - name: Print job text 
-          run: echo 'flyway -user="${{ env.userName }}" -password="${{ env.password }}" -baselineOnMigrate="true" -licenseKey="${{ env.FLYWAY_LICENSE_KEY }}" -configFiles="${{ GITHUB.WORKSPACE }}/flyway.conf" -locations="filesystem:${{ GITHUB.WORKSPACE }}/migrations" check -dryrun -changes -drift "-check.failOnDrift=${{ env.failReleaseIfDriftDetected }}" "-check.buildUrl=${{ env.check_JDBC }}" "-check.buildUser=${{ env.check_userName }}" "-check.buildPassword=${{ env.check_password }}" -url="${{ env.JDBC }}" "-check.reportFilename=${{ GITHUB.WORKSPACE }}/reports/${{ env.databaseName }}-Run-${{ GITHUB.RUN_ID }}-Check-Report.html"'
-        
+         
         - name: Create Check Reports
           if: env.generateDriftAndChangeReport == 'true'
           run: |
@@ -143,13 +141,16 @@ jobs:
             name: flyway-reports
             path: ${{ GITHUB.WORKSPACE }}/Artifact_Files/Reports/
  
- 
+        - name: Migrate Build DB
+          run: |
+          flyway -user="${{ env.userName }}" -password="${{ env.password }}" -baselineOnMigrate="true" -licenseKey="${{ env.FLYWAY_LICENSE_KEY }}" -configFiles="${{ GITHUB.WORKSPACE }}\flyway.conf" -locations="filesystem:${{ GITHUB.WORKSPACE }}\migrations" info migrate info -url="${{ env.JDBC }}" -cleanDisabled='false' projects Settings>Environment area. Ensuring any reviewers are also configured 
+
   # prod:
   #   name: Deploy Production
   #   # The type of runner that the job will run on
   #   runs-on: ubuntu-latest
-  #   environment: 'prod' #Ensure this environment name is setup in the projects Settings>Environment area. Ensuring any reviewers are also configured 
-  #   if: ${{ true }} #Set this variable to false to temporarily disable the job
+  #   environment: 'prod' #Ensure this environment name is setup in     # Runs the Flyway Migrate against the Production database
+    #   if: ${{ true }} #Set this variable to false to temporarily disable the job
   #   needs: prod-preparation
   #   env:
   #     stage: 'Prod'
