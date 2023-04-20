@@ -147,7 +147,7 @@ jobs:
           uses: actions/upload-artifact@v2
           with: 
             name: flyway-reports
-            path: ${{ GITHUB.WORKSPACE }}/Artifact_Files/Reports/
+            path: ${{ GITHUB.WORKSPACE }}/Artifact_Files/reports/
  
         - name: Migrate Prod DB
           run: |
