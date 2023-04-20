@@ -135,6 +135,11 @@ jobs:
 
 
          # Create a directory to stage the artifact files
+        - name: create articifact folder
+          run: mkdir ${{ GITHUB.WORKSPACE }}/Artifact_Files
+        - name: create reports folder
+          run: mkdir ${{ GITHUB.WORKSPACE }}/Artifact_Files/reports
+
         - name: Stage files for publishing
           if: env.publishArtifacts == 'true'
           run: |
