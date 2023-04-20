@@ -132,15 +132,17 @@ jobs:
 
         - name: list reports
           run: ls ${{ GITHUB.WORKSPACE }}/reports
-        - name: list archive folder
-          run: ls ${{ GITHUB.WORKSPACE }}/Artifact_Files
+
 
          # Create a directory to stage the artifact files
         - name: Stage files for publishing
           if: env.publishArtifacts == 'true'
           run: |
             cp -R ${{ GITHUB.WORKSPACE }}/reports ${{ GITHUB.WORKSPACE }}/Artifact_Files/
- 
+
+        - name: list archive folder
+          run: ls ${{ GITHUB.WORKSPACE }}/Artifact_Files
+
         - name: Publish Check Report as Artifact
           uses: actions/upload-artifact@v2
           with: 
