@@ -132,7 +132,9 @@ jobs:
 
         - name: list reports
           run: ls ${{ GITHUB.WORKSPACE }}/reports
- 
+        - name: list archive folder
+          run: ls ${{ GITHUB.WORKSPACE }}/Artifact_Files
+
          # Create a directory to stage the artifact files
         - name: Stage files for publishing
           if: env.publishArtifacts == 'true'
