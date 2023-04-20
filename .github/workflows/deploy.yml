@@ -131,6 +131,7 @@ jobs:
           
         - name: show report directory
           run: echo "list of files in reports folder"
+        - name: list reports
           run: ls ${{ GITHUB.WORKSPACE }}/reports
  
          # Create a directory to stage the artifact files
