@@ -15,7 +15,7 @@
       {
         "connectionProvider": {
           "type": "UsernamePassword",
-          "url": "jdbc:sqlserver://redgate-internal.redgate-platform.com:30288;authentication=sqlPassword;databaseName=AdventureWorksLT2019;encrypt=true;trustServerCertificate=true",
+          "url": "jdbc:sqlserver://clone-internal.red-gate.com:32811;authentication=sqlPassword;databaseName=AdventureWorksLT2019;encrypt=true;trustServerCertificate=true",
           "username": "sa",
           "password": {
             "secretType": "DefaultSecretStore",
@@ -27,7 +27,7 @@
       {
         "connectionProvider": {
           "type": "UsernamePassword",
-          "url": "jdbc:sqlserver://redgate-internal.redgate-platform.com:30288;authentication=sqlPassword;databaseName=test;encrypt=true;trustServerCertificate=true",
+          "url": "jdbc:sqlserver://clone-internal.red-gate.com:32811;authentication=sqlPassword;databaseName=test;encrypt=true;trustServerCertificate=true",
           "username": "sa",
           "password": {
             "secretType": "DefaultSecretStore",
@@ -35,6 +35,18 @@
           }
         },
         "displayName": "test"
+      },
+      {
+        "connectionProvider": {
+          "type": "UsernamePassword",
+          "url": "jdbc:sqlserver://clone-internal.red-gate.com:32811;authentication=sqlPassword;databaseName=Shadow;encrypt=true;trustServerCertificate=true",
+          "username": "sa",
+          "password": {
+            "secretType": "DefaultSecretStore",
+            "name": "Flyway Desktop fb9493f2-03fb-497d-8f1d-af8782ac8f60"
+          }
+        },
+        "displayName": "Shadow"
       }
     ]
   },
